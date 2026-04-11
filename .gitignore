@@ -1,0 +1,11 @@
+# Claude Code local settings
+.claude/settings.local.json
+
+# lead-collection
+lead-collection/node_modules
+lead-collection/.next
+lead-collection/leads.db
+lead-collection/*.db
+lead-collection/.env*
+lead-collection/next-env.d.ts
+lead-collection/*.tsbuildinfo
