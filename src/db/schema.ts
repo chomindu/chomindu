@@ -1,14 +1,14 @@
 import { sql } from "drizzle-orm";
-import { integer, sqliteTable, text } from "drizzle-orm/sqlite-core";
+import { pgTable, serial, text, timestamp } from "drizzle-orm/pg-core";
 
-export const leads = sqliteTable("leads", {
-  id: integer("id").primaryKey({ autoIncrement: true }),
+export const leads = pgTable("leads", {
+  id: serial("id").primaryKey(),
   name: text("name").notNull(),
   email: text("email").notNull().unique(),
   phone: text("phone"),
   company: text("company"),
   message: text("message"),
-  createdAt: text("created_at").default(sql`(datetime('now'))`),
+  createdAt: timestamp("created_at").default(sql`now()`),
 });
 
 export type Lead = typeof leads.$inferSelect;

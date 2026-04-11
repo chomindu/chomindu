@@ -42,7 +42,7 @@ export async function POST(request: NextRequest) {
     console.error(error);
     if (
       error instanceof Error &&
-      error.message.includes("UNIQUE constraint failed")
+      error.message.includes("duplicate key value violates unique constraint")
     ) {
       return NextResponse.json(
         { error: "이미 등록된 이메일입니다." },
